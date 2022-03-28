@@ -33,7 +33,11 @@ func main() {
 	config.SetConfigFile("./config/config.yaml")
 	config.MergeInConfig()
 
-	fmt.Println("current infura_url:",config.Get("infura"))
+	var  url =  config.GetString("infura")
+
+	fmt.Println("current infura_url:",url)
+
+
 
 	client, err := ethclient.Dial(INFURA_URL)
 	if err != nil {
