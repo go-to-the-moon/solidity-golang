@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-const INFURA_URL = "https://gorli.infura.io/v3/74ce7b1c7a104effb6ab0b86ff09eaf0"
+var INFURA_URL = "https://gorli.infura.io/v3/74ce7b1c7a104effb6ab0b86ff09eaf0"
 
 var config *viper.Viper
 var AllConfig TotalConfig
@@ -15,8 +15,6 @@ var AllConfig TotalConfig
 type Infura struct {
 	Url string
 }
-
-
 
 type TotalConfig struct {
 	Infura Infura
@@ -35,7 +33,7 @@ func main() {
 	config.SetConfigFile("./config/config.yaml")
 	config.MergeInConfig()
 
-	fmt.Println("current infura_url: ", AllConfig.Infura.Url)
+	fmt.Println("current infura_url:",config.Get("infura"))
 
 	client, err := ethclient.Dial(INFURA_URL)
 	if err != nil {
