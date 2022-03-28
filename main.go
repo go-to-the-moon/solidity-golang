@@ -1,8 +1,20 @@
 package main
 
-import "fmt"
+import (
+"fmt"
+"github.com/ethereum/go-ethereum/ethclient"
+"log"
+)
 
-func main()  {
+const INFURA_URL="https://gorli.infura.io/v3/74ce7b1c7a104effb6ab0b86ff09eaf0"
 
-	fmt.Println("Hello Solidity!")
+func main() {
+	client, err := ethclient.Dial(INFURA_URL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("we have a connection")
+	_ = client // we'll use this in the upcoming sections
+
 }
