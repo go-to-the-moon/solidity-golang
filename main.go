@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-var INFURA_URL = "https://gorli.infura.io/v3/74ce7b1c7a104effb6ab0b86ff09eaf0"
+var INFURA_URL = "https://goerli.infura.io/v3/74ce7b1c7a104effb6ab0b86ff09eaf0"
 
 var config *viper.Viper
 var AllConfig TotalConfig
